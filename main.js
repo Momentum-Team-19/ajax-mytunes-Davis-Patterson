@@ -2,6 +2,7 @@ const searchResults = document.querySelector('#searchResults')
 const searchButton = document.querySelector('#searchButton')
 const form = document.querySelector('form')
 const apiUrl = "https://itunes.apple.com/search?entity=musicTrack&term="; 
+const musicPlayer = document.getElementById('musicPlayer')
 let input = document.querySelector('#search-input')
 
 function replaceSpaces(searchQuery) {
@@ -28,7 +29,10 @@ form.addEventListener('submit', (event) => {
             console.log(`The API returned: ${song.trackName}`)
             let songBox = document.createElement("div");
             songBox.classList.add("songBox");
-            // songBox.classList.add("tile");
+            songBox.addEventListener('click', () => {
+                musicPlayer.src = song.previewUrl;
+                musicPlayer.play();
+            })
             let image = document.createElement("img");
             image.classList.add("image");
             let figure = document.createElement("figure");

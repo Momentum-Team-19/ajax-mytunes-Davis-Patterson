@@ -23,6 +23,24 @@ header {
 
 }
 
+.musicPlayerContainer {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#musicPlayer {
+    width: 500px;
+    height: 40px; 
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 20px;  
+    background-color: #fff;
+    outline: none;
+}
+
 form {
     border-top: 1px solid #ccc;
     padding: 20px;
@@ -94,6 +112,22 @@ form {
     margin: 2px; 
 }
 
+.songBox:hover {
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+                0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.songBox:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+                inset -2px -2px 4px #fff;
+    background-color: #f9f9f9;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .image {
     margin: 0; 
     border-radius: 5%;
@@ -108,10 +142,23 @@ form {
 
 .title {
     /* border: 1px dotted yellow;  */
-    font-family: "Helvetica"; 
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .artist {
     /* border: 1px dotted yellow;  */
-    font-family: "Helvetica"; 
+    font-family: "Arial", sans-serif;
+    font-size: 16px; 
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
