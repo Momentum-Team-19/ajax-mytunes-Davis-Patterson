@@ -12,8 +12,21 @@
   <header>
     <center><h2 id="totally">Totally Legal Apple Music Alternative</h2></center>
   </header>
-  <div class="musicPlayerContainer">
-    <audio id="musicPlayer" controls preload="auto"></audio>
+  <div>
+    </div id="currentSongContainer">
+      <div id="currentSongBox">
+        <div id="currentSongImgContainer">
+          <img id="currentSongImg" src="" alt=""></img>
+        </div>
+        <div id="currentSongInfo">
+          <div id="currentSongName"></div>
+          <div id="currentSongArtist"></div>
+        </div>
+      </div>
+    </div>
+    <div class="musicPlayerContainer">
+      <audio id="musicPlayer" controls preload="auto"></audio>
+    </div>
   </div>
   <form>
     <input type="text" id="search-input" placeholder="Search..."/>
