@@ -12,6 +12,9 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     let searchTerm = apiUrl + replaceSpaces(input.value) + "/"; 
     console.log(searchTerm);
+    //clear the previous search before new search
+    let searchResults = document.getElementById("searchResults")
+    searchResults.innerHTML = '';
     fetch(searchTerm, {
         method: 'GET',
         headers: {'Content-Type': 'application/json' },
@@ -38,9 +41,10 @@ form.addEventListener('submit', (event) => {
             title.innerText = song.trackName;
             songBox.appendChild(title);
             let artistDiv = document.createElement("div");
+            artistDiv.classList.add('artist');
             artistDiv.innerText = song.artistName;
             searchResults.appendChild(songBox);
-            songBox.appendChild(artistDiv)
+            songBox.appendChild(artistDiv);
         }
     });
 });

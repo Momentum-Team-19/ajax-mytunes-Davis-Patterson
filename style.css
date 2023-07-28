@@ -11,23 +11,71 @@
 
 header {
     /* border: 2px dotted darkgreen;  */
-    margin: 5%;
+    padding: 30px;
+    background: #7d7d7d;
+    color: white;
+    font-size: 30;
+    border-bottom: 1px solid #ccc;
 }
 
 #totally {
-    font-family: "Verdana";
+    font-family: "Arial";
 
 }
 
 form {
+    border-top: 1px solid #ccc;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    margin: 5%; 
+    margin: 0 auto; 
+    background-color: #f9f9f9;
+    padding: 20px 0px 0px 0px;
+    margin-bottom: 20px;
 }
 
-#searchResults {
-    /* border: 2px dotted red;  */
+#search-input {
+    width: 300px;
+    height: 40px; 
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 20px; 
+}
+
+#searchButton {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+#searchButton:active {
+    animation: clickEffect 0.3s ease;
+    }
     
+    @keyframes clickEffect {
+    0% {
+        box-shadow: inset 2px 2px 4px rgba(16, 16, 16, 0.1), inset -2px -2px 4px #fff;
+        background-color: #f9f9f9;
+    }
+    100% {
+        box-shadow: inset 5px 5px 8px rgba(16, 16, 16, 0.1), inset -5px -5px 8px #fff;
+        background-color: #007bff;
+    }
+    }
+
+#searchResults {
+    border-top: 1px solid #ccc;
+    padding: 20px;
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-around;
@@ -35,8 +83,8 @@ form {
 
 .songBox {
     border: 1px solid lightgrey;
-    box-shadow: 5px 5px 8px #00000020,
-                -5px -5px 8px #ffffff;
+    box-shadow: 3px 3px 5px #00000020,
+                -3px -3px 5px #ffffff;
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));           
     display: column;
     justify-content: center;
@@ -59,6 +107,11 @@ form {
 }
 
 .title {
+    /* border: 1px dotted yellow;  */
+    font-family: "Helvetica"; 
+}
+
+.artist {
     /* border: 1px dotted yellow;  */
     font-family: "Helvetica"; 
 }
