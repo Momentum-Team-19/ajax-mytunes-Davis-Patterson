@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* .main {
+    display: flex;
+    flex-wrap: ;
+  } */
+
+header {
+    /* border: 2px dotted darkgreen;  */
+    margin: 5%;
+}
+
+#totally {
+    font-family: "Verdana";
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 5%; 
+}
+
+#searchResults {
+    /* border: 2px dotted red;  */
+    
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.songBox {
+    border: 1px solid lightgrey;
+    box-shadow: 5px 5px 8px #00000020,
+                -5px -5px 8px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));           
+    display: column;
+    justify-content: center;
+    border-radius: 5%; 
+    width: 20%;
+    padding: 2%; 
+    margin: 2px; 
+}
+
+.image {
+    margin: 0; 
+    border-radius: 5%;
+    box-shadow: 3px 3px 5px #00000020,
+                -3px -3px 5px #ffffff;
+}
+
+.imageBox {
+    margin: 0;
+    border-radius: 5%; 
+}
+
+.title {
+    /* border: 1px dotted yellow;  */
+    font-family: "Helvetica"; 
+}
