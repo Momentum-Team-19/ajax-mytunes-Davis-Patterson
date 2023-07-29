@@ -4,14 +4,107 @@ const form = document.querySelector('form')
 const apiUrl = "https://itunes.apple.com/search?entity=musicTrack&term="; 
 const musicPlayer = document.getElementById('musicPlayer')
 const currentSongContainer = document.getElementById('currentSongContainer');
-const currentSongImg = document.getElementById('currentSongImg');
-const currentSongName = document.getElementById('currentSongName');
-const currentSongArtist = document.getElementById('currentSongArtist');
 let input = document.querySelector('#search-input')
 
 function replaceSpaces(searchQuery) {
     return searchQuery.replace(/ /g, '+');
 }
+
+function createResults(results) {
+    for (let song of results) {
+        let songBox = document.createElement("div");
+        songBox.classList.add("songBox");
+        //songBox img
+        let image = document.createElement("img");
+        image.classList.add("image");
+        let figure = document.createElement("figure");
+        figure.classList.add("imageBox");
+        figure.appendChild(image);
+        image.src = song.artworkUrl100;
+        songBox.appendChild(image);
+        let title = document.createElement("div");
+        title.classList.add("title");
+        title.innerText = song.trackName;
+        songBox.appendChild(title);
+        let artistDiv = document.createElement("div");
+        artistDiv.classList.add('artist');
+        artistDiv.innerText = song.artistName;
+        searchResults.appendChild(songBox);
+        songBox.appendChild(artistDiv);
+
+        //when click on songBox
+        songBox.addEventListener('click', () => {
+            musicPlayer.src = song.previewUrl;
+            musicPlayer.play();
+            createNowPlaying(song);
+        })
+    }
+}
+
+/* what the createNowPlaying HTML looks like:
+
+<div id=“currentSongContainer”> (only one that’s linked)
+	<div id=“currentSongBox”>
+		<img id=“currentSongImg”></img>
+		<div id=“currentSongInfo”>
+			<p id=“currentSongName”></p>
+			<p id=“currentSongArtist”></p>
+		</div>
+	</div>
+<div></div>
+
+*/
+
+function createNowPlaying(song) {
+    while (currentSongContainer.firstChild) {
+        currentSongContainer.removeChild(currentSongContainer.firstChild);
+    }
+
+    //build "now playing" box
+    let currentSongBox = document.createElement("div");
+    currentSongBox.id = "currentSongBox";
+
+    //now playing img
+    let currentSongImg = document.createElement("img");
+    currentSongImg.id = "currentSongImg";
+    currentSongImg.src = song.artworkUrl100;
+
+    //now playing info
+    let currentSongInfo = document.createElement("div");
+    currentSongInfo.id = "currentSongInfo";
+
+    //now playing name
+    let currentSongName = document.createElement("p");
+    currentSongName.id = "currentSongName";
+    currentSongName.textContent = song.trackName;
+
+    //now playing artist
+    let currentSongArtist = document.createElement("p");
+    currentSongArtist.id = "currentSongArtist";
+    currentSongArtist.textContent = song.artistName;
+
+    currentSongBox.appendChild(currentSongImg);
+    currentSongBox.appendChild(currentSongInfo);
+    
+    currentSongInfo.appendChild(currentSongName);
+    currentSongInfo.appendChild(currentSongArtist);
+
+    currentSongContainer.appendChild(currentSongBox)
+}
+
+/* what the createNowPlaying HTML looks like:
+
+<div id=“currentSongContainer”> (only one that’s linked)
+	<div id=“currentSongBox”>
+		<img id=“currentSongImg”></img>
+		<div id=“currentSongInfo”>
+			<p id=“currentSongName”></p>
+			<p id=“currentSongArtist”></p>
+		</div>
+	</div>
+<div></div>
+
+*/
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -29,41 +122,10 @@ form.addEventListener('submit', (event) => {
     })
     .then((data) => {
         console.log(data.results)
-        for (let song of data.results) {
-            console.log(`The API returned: ${song.trackName}`)
-            let songBox = document.createElement("div");
-            songBox.classList.add("songBox");
-            songBox.addEventListener('click', () => {
-                currentSongImg.style.display = 'none';
-                currentSongBox.style.display = 'none';
-                currentSongImg.src = '';
-                currentSongName.textContent = '';
-                currentSongArtist.textContent = '';
-                musicPlayer.src = song.previewUrl;
-                musicPlayer.play();
-                currentSongImg.src = song.artworkUrl60;
-                currentSongName.textContent = song.trackName;
-                currentSongArtist.textContent = song.artistName;
-                currentSongBox.style.display = 'block';
-                currentSongImg.style.display = 'block';
-            })
-            let image = document.createElement("img");
-            image.classList.add("image");
-            let figure = document.createElement("figure");
-            figure.classList.add("imageBox");
-            figure.appendChild(image);
-            image.src = song.artworkUrl100;
-            songBox.appendChild(image);
-            let title = document.createElement("div");
-            title.classList.add("title");
-            title.innerText = song.trackName;
-            songBox.appendChild(title);
-            let artistDiv = document.createElement("div");
-            artistDiv.classList.add('artist');
-            artistDiv.innerText = song.artistName;
-            searchResults.appendChild(songBox);
-            songBox.appendChild(artistDiv);
+        while (searchResults.firstChild) {
+            searchResults.removeChild(searchResults.firsChild);
         }
+        createResults(data.results);
     });
 });
 
