@@ -10,15 +10,15 @@
 </head>
 <body>
   <header>
-    <center><h1 id="myTunes">MyTunes</h1></center>
-    <center><h6 id="totally">The Totally Legal Apple Music Alternative</h6></center>
+    <a id="refreshPage"><h1 id="myTunes">MyTunes</h1></a>
+    <h6 id="totally">The Totally Legal Apple Music Alternative</h6>
   </header>
   <div>
     <div id="currentSongContainer">
       
     </div>
-    <div class="musicPlayerContainer">
-      <audio id="musicPlayer" controls preload="auto"></audio>
+    <div ID="musicPlayerContainer">
+      
     </div>
   </div>
   <form>
@@ -30,5 +30,14 @@
 
     </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const refreshPage = document.getElementById('refreshPage');
+
+    refreshPage.addEventListener('click', () => {
+      location.reload();
+    });
+})
+</script>
 </body>
 </html>

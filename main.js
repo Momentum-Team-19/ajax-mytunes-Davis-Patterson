@@ -1,13 +1,24 @@
 const searchResults = document.querySelector('#searchResults')
 const searchButton = document.querySelector('#searchButton')
 const form = document.querySelector('form')
-const apiUrl = "https://itunes.apple.com/search?entity=musicTrack&term="; 
-const musicPlayer = document.getElementById('musicPlayer')
+const apiUrl = "https://itunes.apple.com/search?entity=musicTrack&term=";
 const currentSongContainer = document.getElementById('currentSongContainer');
+const musicPlayerContainer = document.getElementById('musicPlayerContainer');
 let input = document.querySelector('#search-input')
+let musicPlayer;
 
 function replaceSpaces(searchQuery) {
     return searchQuery.replace(/ /g, '+');
+}
+
+function createMusicPlayer() {
+    if (!musicPlayer) {
+        musicPlayer = document.createElement('audio');
+        musicPlayer.controls = true;
+        musicPlayer.preload = 'auto';
+        musicPlayerContainer.appendChild(musicPlayer);
+    }
+    return musicPlayer;
 }
 
 function createResults(results) {
@@ -34,8 +45,11 @@ function createResults(results) {
 
         //when click on songBox
         songBox.addEventListener('click', () => {
+            const musicPlayer = createMusicPlayer();
             musicPlayer.src = song.previewUrl;
-            musicPlayer.play();
+            musicPlayer.addEventListener('canplaythrough', () => {
+                musicPlayer.play();
+            })
             createNowPlaying(song);
         })
     }
@@ -58,6 +72,14 @@ function createResults(results) {
 function createNowPlaying(song) {
     while (currentSongContainer.firstChild) {
         currentSongContainer.removeChild(currentSongContainer.firstChild);
+    }
+
+    if (musicPlayer.src) {
+        musicPlayer.src = song.previewUrl;
+        musicPlayer.play();
+        musicPlayerContainer.style.display = 'block';
+    } else {
+        musicPlayerContainer.style.display = 'none';
     }
 
     //build "now playing" box
