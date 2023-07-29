@@ -18,6 +18,10 @@ header {
     text-decoration: none;
 }
 
+a#refreshPage {
+    cursor: pointer;
+}
+
 #myTunes {
     font-family: "Arial", sans-serif;
     color: white;
@@ -116,7 +120,7 @@ header {
 }
 
 #musicPlayer {
-    width: 500px;
+    width: 50%;
     height: 40px; 
     line-height: 40px;
     padding: 0 20px;
@@ -136,6 +140,10 @@ form {
     background-color: #f9f9f9;
     padding: 20px 0px 0px 0px;
     margin-bottom: 20px;
+}
+
+#searchContainer {
+    display: flex;
 }
 
 #search-input {
@@ -176,6 +184,10 @@ form {
         background-color: #007bff;
     }
     }
+
+#messageBox {
+    text-align: center;
+}
 
 #searchResults {
     border-top: 1px solid #ccc;
