@@ -1,16 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant:400,700|Playfair+Display:900");
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+.darkMode {
+    --clr-light: #C4BBAF;
+    --clr-dark: #0A1045;
+    --clr-primary: #7d7d7d;
+    --clr-secondary: #6A6262;
+    --clr-accent: #009FFD;
+
+    --foreground: var(--clr-light);
+    --background: var(--clr-dark);
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    z-index: 100;
+    top: 1em;
+    right: 1em;
+    color: var(--foreground);
+    border: 2px solid currentColor; 
+    padding: 4px; 
+    background: transparent;
+    cursor: default;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+
+}
+
 header {
-    /* border: 2px dotted darkgreen;  */
     padding: 30px;
-    background: #7d7d7d;
-    color: white;
+    background: var(--clr-primary);
+    color: var(--clr-dark);
     font-size: 30;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--clr-light);
+}
+
+.darkMode header.header {
+    background: var(--clr-primary);
+    border-bottom: 1px solid var(--clr-dark);
+    color: var(--clr-dark);
 }
 
 #refreshPage {
@@ -24,13 +58,25 @@ a#refreshPage {
 
 #myTunes {
     font-family: "Arial", sans-serif;
-    color: white;
+    color: var(--clr-dark);
 
+}
+
+.darkMode #myTunes {
+    color: white;
 }
 
 #totally {
     font-family: "Arial", sans-serif;
     text-align: center;
+    cursor: default;
+}
+
+.darkMode #totally {
+    color: white;
+}
+
+#darkModeSwitch {
     cursor: default;
 }
 
@@ -41,8 +87,12 @@ a#refreshPage {
     justify-content: center;
 }
 
+.darkMode #dynamicContainer {
+    background-color: var(--clr-primary);
+}
+
 #currentSongBox {
-    border: 1px solid lightgrey;
+    border: 1px solid var(--clr-light);
     box-shadow: 3px 3px 5px #00000020,
     -3px -3px 5px #ffffff;
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
@@ -142,9 +192,18 @@ form {
     margin-bottom: 20px;
 }
 
+.darkMode form {
+    background-color: var(--clr-primary);
+}
+
 #searchContainer {
     border-top: 1px solid #ccc;
     display: flex;
+}
+
+.darkMode #searchContainer {
+    background-color: var(--clr-primary);
+    border-top: 1px solid var(--clr-dark);
 }
 
 #search-input {
@@ -199,6 +258,15 @@ form {
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.darkMode #searchResults {
+    border-top: 1px solid var(--clr-dark);
+    background-color: var(--clr-primary);
+}
+
+.darkMode #resultsContainer {
+    background-color: var(--clr-primary);
 }
 
 .songBox {
