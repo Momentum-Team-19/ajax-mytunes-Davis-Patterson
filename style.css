@@ -31,6 +31,7 @@ a#refreshPage {
 #totally {
     font-family: "Arial", sans-serif;
     text-align: center;
+    cursor: default;
 }
 
 #currentSongContainer {
@@ -132,7 +133,6 @@ a#refreshPage {
 }
 
 form {
-    border-top: 1px solid #ccc;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -143,6 +143,7 @@ form {
 }
 
 #searchContainer {
+    border-top: 1px solid #ccc;
     display: flex;
 }
 
@@ -187,6 +188,9 @@ form {
 
 #messageBox {
     text-align: center;
+    font-family: "Arial", sans-serif;
+    font-size: 18;
+    color: slategrey;
 }
 
 #searchResults {
@@ -236,6 +240,7 @@ form {
 .imageBox {
     margin: 0;
     border-radius: 5%; 
+    align-items: center;
 }
 
 .title {
