@@ -313,35 +313,19 @@ form {
 
 .songBox {
     border: 1px solid lightgrey;
-    box-shadow: 3px 3px 5px #00000020,
-                -3px -3px 5px #ffffff;
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));           
+    box-shadow: 3px 3px 5px #00000020, -3px -3px 5px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
-    border-radius: 5%; 
+    border-radius: 5%;
     width: 20%;
-    padding: 2%; 
-    margin: 2px; 
-}
-
-.darkMode .songBox {
-    border: 1px solid lightgrey;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, .6),
-                -3px -3px 5px rgba(102, 102, 102, .6);
-    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), 
-                                        rgba(153, 153, 153, 0.9));           
-    display: column;
-    justify-content: center;
-    border-radius: 5%; 
-    width: 20%;
-    padding: 2%; 
-    margin: 2px; 
+    padding: 2%;
+    margin: 2px;
 }
 
 .songBox:hover {
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
-                0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
     transition: box-shadow 0.3s, transform 0.3s;
 }
@@ -350,6 +334,26 @@ form {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
                 inset -2px -2px 4px #fff;
     background-color: #f9f9f9;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
+.darkMode .songBox {
+    border: 1px solid lightgrey;
+    box-shadow: 3px 3px 5px rgba(230, 230, 230, 0.6), -3px -3px 5px rgba(102, 102, 102, 0.6);
+    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), rgba(153, 153, 153, 0.9));
+}
+
+.darkMode .songBox:hover {
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 8px 16px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.darkMode .songBox:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
