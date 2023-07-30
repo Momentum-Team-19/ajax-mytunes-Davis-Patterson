@@ -6,12 +6,23 @@
     margin: 0;
 }
 
-.darkMode {
+:root {
     --clr-light: #C4BBAF;
     --clr-dark: #0A1045;
     --clr-primary: #7d7d7d;
     --clr-secondary: #6A6262;
     --clr-accent: #009FFD;
+
+    --foreground: var(--clr-light);
+    --background: var(--clr-dark);
+}
+
+.darkMode {
+    --clr-light: #606470;
+    --clr-dark: #353941;
+    --clr-primary: #26282b;
+    --clr-secondary: #6A6262;
+    --clr-accent: #3b50d2;
 
     --foreground: var(--clr-light);
     --background: var(--clr-dark);
@@ -35,7 +46,7 @@
 
 header {
     padding: 30px;
-    background: var(--clr-primary);
+    background-color: var(--clr-primary);
     color: var(--clr-dark);
     font-size: 30;
     border-bottom: 1px solid var(--clr-light);
@@ -43,7 +54,7 @@ header {
 
 .darkMode header.header {
     background: var(--clr-primary);
-    border-bottom: 1px solid var(--clr-dark);
+    border-bottom: 1px solid var(--clr-light);
     color: var(--clr-dark);
 }
 
@@ -58,7 +69,7 @@ a#refreshPage {
 
 #myTunes {
     font-family: "Arial", sans-serif;
-    color: var(--clr-dark);
+    color: white;
 
 }
 
@@ -70,6 +81,7 @@ a#refreshPage {
     font-family: "Arial", sans-serif;
     text-align: center;
     cursor: default;
+    color: white;
 }
 
 .darkMode #totally {
@@ -187,7 +199,6 @@ form {
     display: flex;
     justify-content: center;
     margin: 0 auto; 
-    background-color: #f9f9f9;
     padding: 20px 0px 0px 0px;
     margin-bottom: 20px;
 }
@@ -197,13 +208,13 @@ form {
 }
 
 #searchContainer {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid (var(--clr-light));
     display: flex;
 }
 
 .darkMode #searchContainer {
     background-color: var(--clr-primary);
-    border-top: 1px solid var(--clr-dark);
+    border-top: 1px solid var(--clr-light);
 }
 
 #search-input {
@@ -219,7 +230,7 @@ form {
     height: 40px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: var(--clr-accent);
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -253,7 +264,7 @@ form {
 }
 
 #searchResults {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--clr-light);
     padding: 20px;
     display: flex; 
     flex-wrap: wrap;
@@ -261,7 +272,7 @@ form {
 }
 
 .darkMode #searchResults {
-    border-top: 1px solid var(--clr-dark);
+    border-top: 1px solid var(--clr-light);
     background-color: var(--clr-primary);
 }
 
