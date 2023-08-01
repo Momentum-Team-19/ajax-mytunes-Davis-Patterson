@@ -14,16 +14,16 @@ function createResults(results) {
     //create songBox
     let songBox = document.createElement('div');
     songBox.classList.add('songBox');
+    //create imageBox
+    let imageBox = document.createElement('div');
+    imageBox.classList.add('imageBox');
     //create img
     let image = document.createElement('img');
     image.classList.add('image');
-    //create figure
-    let figure = document.createElement('figure');
-    figure.classList.add('imageBox');
-    figure.appendChild(image);
+    imageBox.appendChild(image);
     //img source
     image.src = song.artworkUrl100;
-    songBox.appendChild(image);
+    songBox.appendChild(imageBox);
     let title = document.createElement('div');
     title.classList.add('title');
     title.innerText = song.trackName;
@@ -47,16 +47,18 @@ function createResults(results) {
 }
 
 /* what the results html looks like 
-
-<div class="searchResults">
-  <div class="songBox">
-    <img class="image" src="URL_OF_SONG_ARTWORK" />
-    <div class="title">SONG_TITLE</div>
-    <div class="artist">ARTIST_NAME</div>
+  
+  <div class="searchResults">
+    <div class="songBox">
+      <div class="imageBox">
+        <img class="image" src="">
+      </div>
+      <div class="title"></div>
+      <div class="artist"></div>
+    </div>
   </div>
-</div>
-
-*/
+  
+  */
 
 function displayMessage(message) {
   clearMessage();
@@ -78,25 +80,25 @@ function clearMessage() {
 }
 
 /* what the createNowPlaying HTML looks like:
-  
-  <div id="dynamicContainer">
-      <div id="playerContainer">
-      <div id="currentSongContainer">
-          <div id="currentSongBox">
-              <img id="currentSongImg" src="song_artwork_url"></img>
-          <div id="currentSongInfo">
-              <p id="currentSongName">Song Name</p>
-              <p id="currentSongArtist">Artist Name</p>
-          </div>
-          </div>
-      </div>
-      <div id="musicPlayerContainer">
-          <audio controls preload="auto" src="song_preview_url"></audio>
-      </div>
-      </div>
-  </div>
-  
-  */
+    
+    <div id="dynamicContainer">
+        <div id="playerContainer">
+        <div id="currentSongContainer">
+            <div id="currentSongBox">
+                <img id="currentSongImg" src="song_artwork_url"></img>
+            <div id="currentSongInfo">
+                <p id="currentSongName">Song Name</p>
+                <p id="currentSongArtist">Artist Name</p>
+            </div>
+            </div>
+        </div>
+        <div id="musicPlayerContainer">
+            <audio controls preload="auto" src="song_preview_url"></audio>
+        </div>
+        </div>
+    </div>
+    
+    */
 
 function createNowPlaying(song) {
   const playerContainer = document.createElement('div');
@@ -168,25 +170,25 @@ function createNowPlaying(song) {
 }
 
 /* what the createNowPlaying HTML looks like:
-  
-  <div id="dynamicContainer">
-      <div id="playerContainer">
-      <div id="currentSongContainer">
-          <div id="currentSongBox">
-              <img id="currentSongImg" src="song_artwork_url"></img>
-          <div id="currentSongInfo">
-              <p id="currentSongName">Song Name</p>
-              <p id="currentSongArtist">Artist Name</p>
-          </div>
-          </div>
-      </div>
-      <div id="musicPlayerContainer">
-          <audio controls preload="auto" src="song_preview_url"></audio>
-      </div>
-      </div>
-  </div>
-  
-  */
+    
+    <div id="dynamicContainer">
+        <div id="playerContainer">
+        <div id="currentSongContainer">
+            <div id="currentSongBox">
+                <img id="currentSongImg" src="song_artwork_url"></img>
+            <div id="currentSongInfo">
+                <p id="currentSongName">Song Name</p>
+                <p id="currentSongArtist">Artist Name</p>
+            </div>
+            </div>
+        </div>
+        <div id="musicPlayerContainer">
+            <audio controls preload="auto" src="song_preview_url"></audio>
+        </div>
+        </div>
+    </div>
+    
+    */
 
 function createMusicPlayer() {
   if (!musicPlayer) {
@@ -201,4 +203,8 @@ function createMusicPlayer() {
     musicPlayerContainer.appendChild(musicPlayer);
   }
   return musicPlayer;
+}
+
+function clear(container) {
+  removeAllChildNodes(container);
 }

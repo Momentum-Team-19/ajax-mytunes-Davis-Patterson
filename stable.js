@@ -1,12 +1,3 @@
-const searchResults = document.querySelector('#searchResults');
-const searchButton = document.querySelector('#searchButton');
-const form = document.querySelector('form');
-const apiUrl = 'https://itunes.apple.com/search?entity=musicTrack&term=';
-const dynamicContainer = document.getElementById('dynamicContainer');
-let input = document.querySelector('#search-input');
-let musicPlayer;
-let musicPlayerContainer;
-
 function replaceSpaces(searchQuery) {
   return searchQuery.replace(/ /g, '+');
 }
@@ -23,16 +14,16 @@ function createResults(results) {
     //create songBox
     let songBox = document.createElement('div');
     songBox.classList.add('songBox');
+    //create imageBox
+    let imageBox = document.createElement('div');
+    imageBox.classList.add('imageBox');
     //create img
     let image = document.createElement('img');
     image.classList.add('image');
-    //create figure
-    let figure = document.createElement('figure');
-    figure.classList.add('imageBox');
-    figure.appendChild(image);
+    imageBox.appendChild(image);
     //img source
     image.src = song.artworkUrl100;
-    songBox.appendChild(image);
+    songBox.appendChild(imageBox);
     let title = document.createElement('div');
     title.classList.add('title');
     title.innerText = song.trackName;
@@ -48,10 +39,26 @@ function createResults(results) {
       const musicPlayer = createMusicPlayer();
       musicPlayer.src = song.previewUrl;
       createNowPlaying(song);
-      musicPlayer.play();
+
+      //AUTOPLAYS MUSIC ON CLICK
+      // musicPlayer.play();
     });
   }
 }
+
+/* what the results html looks like 
+
+<div class="searchResults">
+  <div class="songBox">
+    <div class="imageBox">
+      <img class="image" src="">
+    </div>
+    <div class="title"></div>
+    <div class="artist"></div>
+  </div>
+</div>
+
+*/
 
 function displayMessage(message) {
   clearMessage();
@@ -73,25 +80,25 @@ function clearMessage() {
 }
 
 /* what the createNowPlaying HTML looks like:
-
-<div id="dynamicContainer">
-    <div id="playerContainer">
-    <div id="currentSongContainer">
-        <div id="currentSongBox">
-            <img id="currentSongImg" src="song_artwork_url"></img>
-        <div id="currentSongInfo">
-            <p id="currentSongName">Song Name</p>
-            <p id="currentSongArtist">Artist Name</p>
-        </div>
-        </div>
-    </div>
-    <div id="musicPlayerContainer">
-        <audio controls preload="auto" src="song_preview_url"></audio>
-    </div>
-    </div>
-</div>
-
-*/
+  
+  <div id="dynamicContainer">
+      <div id="playerContainer">
+      <div id="currentSongContainer">
+          <div id="currentSongBox">
+              <img id="currentSongImg" src="song_artwork_url"></img>
+          <div id="currentSongInfo">
+              <p id="currentSongName">Song Name</p>
+              <p id="currentSongArtist">Artist Name</p>
+          </div>
+          </div>
+      </div>
+      <div id="musicPlayerContainer">
+          <audio controls preload="auto" src="song_preview_url"></audio>
+      </div>
+      </div>
+  </div>
+  
+  */
 
 function createNowPlaying(song) {
   const playerContainer = document.createElement('div');
@@ -163,31 +170,32 @@ function createNowPlaying(song) {
 }
 
 /* what the createNowPlaying HTML looks like:
-
-<div id="dynamicContainer">
-    <div id="playerContainer">
-    <div id="currentSongContainer">
-        <div id="currentSongBox">
-            <img id="currentSongImg" src="song_artwork_url"></img>
-        <div id="currentSongInfo">
-            <p id="currentSongName">Song Name</p>
-            <p id="currentSongArtist">Artist Name</p>
-        </div>
-        </div>
-    </div>
-    <div id="musicPlayerContainer">
-        <audio controls preload="auto" src="song_preview_url"></audio>
-    </div>
-    </div>
-</div>
-
-*/
+  
+  <div id="dynamicContainer">
+      <div id="playerContainer">
+      <div id="currentSongContainer">
+          <div id="currentSongBox">
+              <img id="currentSongImg" src="song_artwork_url"></img>
+          <div id="currentSongInfo">
+              <p id="currentSongName">Song Name</p>
+              <p id="currentSongArtist">Artist Name</p>
+          </div>
+          </div>
+      </div>
+      <div id="musicPlayerContainer">
+          <audio controls preload="auto" src="song_preview_url"></audio>
+      </div>
+      </div>
+  </div>
+  
+  */
 
 function createMusicPlayer() {
   if (!musicPlayer) {
     musicPlayer = document.createElement('audio');
     musicPlayer.controls = true;
     musicPlayer.preload = 'auto';
+    musicPlayer.volume - 0.2;
     if (!musicPlayerContainer) {
       musicPlayerContainer = document.createElement('div');
       musicPlayerContainer.id = 'musicPlayerContainer';
@@ -196,34 +204,3 @@ function createMusicPlayer() {
   }
   return musicPlayer;
 }
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  let searchTerm = input.value.trim();
-  if (searchTerm === '') {
-    displayMessage('Please enter a search term.');
-    return;
-  }
-  let apiUrlWithSearch = apiUrl + replaceSpaces(searchTerm) + '/';
-  console.log(apiUrlWithSearch);
-  //clear the previous search before new search
-  let searchResults = document.getElementById('searchResults');
-  searchResults.innerHTML = '';
-  fetch(apiUrlWithSearch, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.results);
-      while (searchResults.firstChild) {
-        searchResults.removeChild(searchResults.firsChild);
-      }
-      createResults(data.results);
-    })
-    .catch((error) => {
-      displayMessage('An error occured while fetching the results.');
-    });
-});

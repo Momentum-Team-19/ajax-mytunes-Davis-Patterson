@@ -29,7 +29,7 @@ form.addEventListener('submit', (event) => {
     .then((data) => {
       console.log(data.results);
       while (searchResults.firstChild) {
-        searchResults.removeChild(searchResults.firsChild);
+        clear(searchResults);
       }
       createResults(data.results);
     })
