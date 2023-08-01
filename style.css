@@ -238,8 +238,7 @@ form {
 }
 
 #searchContainer {
-    border-top: 1px solid (var(--clr-light));
-    display: flex;
+    border-top: 1px solid var(--clr-light);
 }
 
 .darkMode #searchContainer {
@@ -312,7 +311,7 @@ form {
 }
 
 .songBox {
-    border: 1px solid lightgrey;
+    border: 2px solid red; /*1 px lightgrey*/ 
     box-shadow: 3px 3px 5px #00000020, -3px -3px 5px #ffffff;
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
@@ -359,6 +358,7 @@ form {
 }
 
 .image {
+    border: 2px dotted blue;
     margin: 0; 
     border-radius: 5%;
     box-shadow: 3px 3px 5px #00000020,
@@ -373,6 +373,7 @@ form {
 }
 
 .imageBox {
+    border: 4px dotted green;
     margin: 0;
     border-radius: 5%; 
     display: flex;
@@ -381,7 +382,7 @@ form {
 }
 
 .title {
-    /* border: 1px dotted yellow;  */
+    border: 1px dotted yellow; 
     font-family: "Arial", sans-serif;
     font-size: 18px;
     font-weight: bold; 
