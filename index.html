@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Oswald:400,700">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" />
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="#" />
   <script src="main.js" defer></script>
   <script src="functions.js" defer></script>
   <script src="darkmode.js" defer></script>
@@ -26,7 +28,19 @@
   <div id="searchContainer">
     <form id="searchBar">
       <input type="text" id="search-input" placeholder="Search..."/>
-      <button type="submit" id="searchButton">Search</button>
+      <select id="searchType">
+        <option value=""></option>
+        <option value="song">Song</option>
+        <option value="artist">Artist</option>
+        <option value="album">Album</option>
+      </select>
+      <button type="submit" id="searchButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" height="18px" width="18px" version="1.1" id="Capa_1" viewBox="0 0 488.4 488.4" xml:space="preserve">
+        <g>
+          <g>
+            <path d="M0,203.25c0,112.1,91.2,203.2,203.2,203.2c51.6,0,98.8-19.4,134.7-51.2l129.5,129.5c2.4,2.4,5.5,3.6,8.7,3.6    s6.3-1.2,8.7-3.6c4.8-4.8,4.8-12.5,0-17.3l-129.6-129.5c31.8-35.9,51.2-83,51.2-134.7c0-112.1-91.2-203.2-203.2-203.2    S0,91.15,0,203.25z M381.9,203.25c0,98.5-80.2,178.7-178.7,178.7s-178.7-80.2-178.7-178.7s80.2-178.7,178.7-178.7    S381.9,104.65,381.9,203.25z"/>
+          </g>
+        </g>
+        </svg></button>
     </form>
   </div>
   <section id="resultsContainer">

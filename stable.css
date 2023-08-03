@@ -206,18 +206,6 @@ a#refreshPage {
     margin-top: 5px;
 }
 
-#currentSongGenre {
-    font-family: "Arial", sans-serif;
-    font-size: 14px; 
-    color: #666;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 90%;
-    margin-top: 5px;
-}
-
 #musicPlayerContainer {
     text-align: center;
     margin-top: 20px;
@@ -381,54 +369,6 @@ form {
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
-.artistBox {
-    border: 1 px lightgrey;
-    box-shadow: 3px 3px 5px #00000020, -3px -3px 5px #ffffff;
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
-    display: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5%;
-    min-width: 32%;
-    padding: 2%;
-    margin: 8px;
-}
-
-.artistBox:hover {
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.artistBox:active {
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-                inset -2px -2px 4px #fff;
-    background-color: #f9f9f9;
-    transform: translateY(1px);
-    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
-}
-
-.darkMode .artistBox {
-    border: 1px solid lightgrey;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, 0.6), -3px -3px 5px rgba(102, 102, 102, 0.6);
-    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), rgba(153, 153, 153, 0.9));
-}
-
-.darkMode .artistBox:hover {
-    background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 8px 16px rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.darkMode .artistBox:active {
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(1px);
-    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
-}
-
 .image {
     margin: 0; 
     border-radius: 5%;
@@ -449,7 +389,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px;
+    padding: 5px;
 }
 
 .title {
@@ -464,61 +404,6 @@ form {
 }
 
 .artist {
-    /* border: 1px dotted yellow;  */
-    font-family: "Arial", sans-serif;
-    font-size: 16px; 
-    color: #666;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-
-.artistBold {
-    font-family: "Arial", sans-serif;
-    font-size: 18px;
-    font-weight: bold; 
-    color: #333;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.artistWrap {
-    font-family: "Arial", sans-serif;
-    font-size: 18px;
-    font-weight: bold; 
-    color: #333;
-    text-align: center;
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
-}
-
-.album {
-    font-family: "Arial", sans-serif;
-    font-size: 18px;
-    font-weight: bold; 
-    color: #333;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.genre {
-    /* border: 1px dotted yellow;  */
-    font-family: "Arial", sans-serif;
-    font-size: 12px; 
-    color: #666;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-
-.genreBig {
     /* border: 1px dotted yellow;  */
     font-family: "Arial", sans-serif;
     font-size: 16px; 
