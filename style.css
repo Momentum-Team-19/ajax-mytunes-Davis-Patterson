@@ -309,16 +309,21 @@ form {
     }
     }
 
+#errorBox {
+    border-top: 1px solid var(--clr-light);
+}
+
 #messageBox {
     text-align: center;
     font-family: "Arial", sans-serif;
     font-size: 18;
     color: slategrey;
+    margin-top: 8px; 
 }
 
 #searchResults {
-    border-top: 1px solid var(--clr-light);
-    padding: 20px;
+    /* border-top: 1px solid var(--clr-light); */
+    padding: 10px;
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-around;

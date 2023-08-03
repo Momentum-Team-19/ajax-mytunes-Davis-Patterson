@@ -89,6 +89,7 @@ function createResults(results, selectedOption) {
         console.log(
           `album= ${song.collectionName}\nartist= ${song.artistName}\nnewUrl=: ${newUrl}`
         );
+        displayMessage('Please Wait...');
         fetch(newUrl, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
@@ -151,6 +152,7 @@ function createResults(results, selectedOption) {
         console.log(
           `album= ${song.collectionName}\nartist= ${song.artistName}\nnewUrl=: ${newUrl}`
         );
+        displayMessage('Please Wait...');
         fetch(newUrl, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
@@ -190,17 +192,19 @@ function displayMessage(message) {
   messageBox.id = 'messageBox';
   messageBox.textContent = message;
   console.log(message);
-  searchResults.appendChild(messageBox);
+  errorBox.appendChild(messageBox);
 
   setTimeout(() => {
-    searchResults.removeChild(messageBox);
+    if (errorBox.contains(messageBox)) {
+      errorBox.removeChild(messageBox);
+    }
   }, 2000);
 }
 
 function clearMessage() {
   const messageBox = document.getElementById('messageBox');
   if (messageBox) {
-    searchResults.removeChild(messageBox);
+    errorBox.removeChild(messageBox);
   }
 }
 
