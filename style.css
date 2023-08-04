@@ -20,7 +20,7 @@
 .darkMode {
     --clr-light: #606470;
     --clr-dark: #353941;
-    --clr-primary: #acacac;
+    --clr-primary: #90959a;
     --clr-secondary: #26282b;
     --clr-accent: #3b50d2;
 
@@ -61,7 +61,7 @@ body {
 }
 
 .darkMode .header {
-    background: var(--clr-primary);
+    background-color: var(--clr-primary);
     border-bottom: 1px solid var(--clr-light);
     color: var(--clr-dark);
 }
@@ -303,6 +303,10 @@ form {
     background-color: var(--clr-secondary);
 }
 
+.darkMode #search-input {
+    color: white;
+}
+
 #searchType {
     height: 40px;
     padding: 10px 20px;
@@ -313,6 +317,10 @@ form {
     background-color: var(--clr-secondary);
     cursor: pointer;
 }
+
+.darkMode #searchType {
+    color: white; /* Set the font color to white in dark mode */
+  }
 
 #searchButton {
     height: 40px;
@@ -430,7 +438,7 @@ form {
     justify-content: center;
     align-items: center;
     border-radius: 5%;
-    min-width: 32%;
+    width: 30%;
     padding: 2%;
     margin: 8px;
 }
@@ -451,13 +459,14 @@ form {
 }
 
 .darkMode .artistBox {
-    border: 1px solid lightgrey;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, 0.6), -3px -3px 5px rgba(102, 102, 102, 0.6);
-    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), rgba(153, 153, 153, 0.9));
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+                -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
 }
 
 .darkMode .artistBox:hover {
-    background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(140deg, rgba(66, 85, 113, 0.8), rgba(32, 54, 86, 0.8));
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 8px 16px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     transition: box-shadow 0.3s, transform 0.3s;
@@ -563,9 +572,9 @@ form {
     font-weight: bold; 
     color: #333;
     text-align: center;
-    /* white-space: nowrap;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; */
+    text-overflow: ellipsis;
 }
 
 .darkMode .artistWrap {

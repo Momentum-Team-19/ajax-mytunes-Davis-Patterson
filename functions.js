@@ -10,6 +10,7 @@ function createResults(results, selectedOption) {
   }
   //if results > 0
   if (selectedOption === 'song' || selectedOption === '') {
+    displayMessage('Please Wait...');
     for (let song of results) {
       //create songBox
       let songBox = document.createElement('div');
@@ -60,6 +61,7 @@ function createResults(results, selectedOption) {
     }
   }
   if (selectedOption === 'artist') {
+    displayMessage('Please Wait...');
     for (let song of results) {
       //create artistBox
       let artistBox = document.createElement('div');
@@ -108,6 +110,7 @@ function createResults(results, selectedOption) {
     }
   }
   if (selectedOption === 'album') {
+    displayMessage('Please Wait...');
     for (let song of results) {
       //create albumBox
       let songBox = document.createElement('div');
@@ -198,7 +201,7 @@ function displayMessage(message) {
     if (errorBox.contains(messageBox)) {
       errorBox.removeChild(messageBox);
     }
-  }, 2000);
+  }, 800);
 }
 
 function clearMessage() {
