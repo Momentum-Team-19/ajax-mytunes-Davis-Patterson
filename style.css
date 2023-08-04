@@ -126,11 +126,10 @@ a#refreshPage {
 }
 
 .darkMode #currentSongBox {
-    border: 1px solid rgba(172, 172, 172, 1);
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, .6),
-                -3px -3px 5px rgba(102, 102, 102, .6);
-    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), 
-                                        rgba(153, 153, 153, 0.9));
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+                -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
     border-radius: 5%;
     width: 50%;
     padding: 2%;
@@ -168,8 +167,8 @@ a#refreshPage {
     width: 80px;
     height: 80px;
     border-radius: 15%;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, .6),
-                -3px -3px 5px rgba(102, 102, 102, .6);
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .6),
+                -3px -3px 5px rgba(58, 63, 72, .8);
 }
 
 #currentSongInfo {
@@ -194,6 +193,18 @@ a#refreshPage {
     width: 90%;
 }
 
+.darkMode #currentSongName {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #ccc;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+
 #currentSongArtist {
     font-family: "Arial", sans-serif;
     font-size: 16px; 
@@ -206,10 +217,34 @@ a#refreshPage {
     margin-top: 5px;
 }
 
+.darkMode #currentSongArtist {
+    font-family: "Arial", sans-serif;
+    font-size: 16px; 
+    color: #a7abb0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-top: 5px;
+}
+
 #currentSongGenre {
     font-family: "Arial", sans-serif;
     font-size: 14px; 
     color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-top: 5px;
+}
+
+.darkMode #currentSongGenre {
+    font-family: "Arial", sans-serif;
+    font-size: 14px; 
+    color: #898c91;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -307,7 +342,7 @@ form {
         box-shadow: inset 5px 5px 8px rgba(16, 16, 16, 0.1), inset -5px -5px 8px #fff;
         background-color: #007bff;
     }
-    }
+}
 
 #errorBox {
     border-top: 1px solid var(--clr-light);
@@ -330,7 +365,7 @@ form {
 }
 
 .darkMode #searchResults {
-    border-top: 1px solid var(--clr-light);
+    /* border-top: 1px solid var(--clr-light); */
     background-color: var(--clr-secondary);
 }
 
@@ -340,7 +375,7 @@ form {
 
 .songBox {
     border: 1 px lightgrey;
-    box-shadow: 3px 3px 5px #00000020, -3px -3px 5px #ffffff;
+    /* box-shadow: 3px 3px 5px #00000020, -3px -3px 5px #ffffff; */
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
@@ -367,13 +402,14 @@ form {
 }
 
 .darkMode .songBox {
-    border: 1px solid lightgrey;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, 0.6), -3px -3px 5px rgba(102, 102, 102, 0.6);
-    background: linear-gradient(140deg, rgba(242, 242, 242, 0.8), rgba(153, 153, 153, 0.9));
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+                -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
 }
 
 .darkMode .songBox:hover {
-    background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(140deg, rgba(66, 85, 113, 0.8), rgba(32, 54, 86, 0.8));
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 8px 16px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     transition: box-shadow 0.3s, transform 0.3s;
@@ -384,7 +420,7 @@ form {
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
-}
+} 
 
 .artistBox {
     border: 1 px lightgrey;
@@ -444,8 +480,8 @@ form {
 .darkMode .image {
     margin: 0; 
     border-radius: 5%;
-    box-shadow: 3px 3px 5px rgba(230, 230, 230, .6),
-                -3px -3px 5px rgba(102, 102, 102, .6);
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .3),
+                -3px -3px 5px rgba(58, 63, 72, .8);
 }
 
 .imageBox {
@@ -454,7 +490,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px;
+    padding-bottom: 20px;
 }
 
 .title {
@@ -468,11 +504,31 @@ form {
     text-overflow: ellipsis;
 }
 
+.darkMode .title {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #ccc;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .artist {
-    /* border: 1px dotted yellow;  */
     font-family: "Arial", sans-serif;
     font-size: 16px; 
     color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.darkMode .artist {
+    font-family: "Arial", sans-serif;
+    font-size: 16px; 
+    color: #a7abb0;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -490,11 +546,33 @@ form {
     text-overflow: ellipsis;
 }
 
+.darkMode .artistBold {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #ccc;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .artistWrap {
     font-family: "Arial", sans-serif;
     font-size: 18px;
     font-weight: bold; 
     color: #333;
+    text-align: center;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.darkMode .artistWrap {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #ccc;
     text-align: center;
     /* white-space: nowrap;
     overflow: hidden;
@@ -512,6 +590,17 @@ form {
     text-overflow: ellipsis;
 }
 
+.darkMode .album {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold; 
+    color: #ccc;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .genre {
     /* border: 1px dotted yellow;  */
     font-family: "Arial", sans-serif;
@@ -523,11 +612,33 @@ form {
     text-overflow: ellipsis; 
 }
 
+.darkMode .genre {
+    /* border: 1px dotted yellow;  */
+    font-family: "Arial", sans-serif;
+    font-size: 12px; 
+    color: #898c91;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 .genreBig {
     /* border: 1px dotted yellow;  */
     font-family: "Arial", sans-serif;
     font-size: 16px; 
     color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.darkMode .genreBig {
+    /* border: 1px dotted yellow;  */
+    font-family: "Arial", sans-serif;
+    font-size: 16px; 
+    color: #898c91;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
